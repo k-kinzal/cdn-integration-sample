@@ -16,5 +16,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: k-kinzal/cdn-integration-sample
-after_success:
-  - aws create-invalidation --distribution-id E109EQDT2BCAV0 --paths /*
+after_deploy:
+  - aws cloudfront create-invalidation --distribution-id E109EQDT2BCAV0 --paths /*
