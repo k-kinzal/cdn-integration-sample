@@ -17,4 +17,4 @@ deploy:
   on:
     repo: k-kinzal/cdn-integration-sample
 after_deploy:
-  - aws cloudfront create-invalidation --distribution-id E109EQDT2BCAV0 --paths /*
+  - aws cloudfront create-invalidation --distribution-id E109EQDT2BCAV0 --paths $(git --no-pager diff $TRAVIS_TAG `git describe --abbrev=0 \`git describe --abbrev=0\`^` --name-only | tr '\n' ' ')
