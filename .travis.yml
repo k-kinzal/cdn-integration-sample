@@ -3,6 +3,8 @@ sudo: false
 before_install:
 - pip install awscli --ignore-installed six
 - aws --version
+script:
+- echo 'no scripts'
 deploy:
   provider: s3
   access_key_id: AKIAIKXX3RHF6UIZSI6Q
