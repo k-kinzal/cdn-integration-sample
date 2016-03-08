@@ -19,4 +19,10 @@ deploy:
     branch: master
     repo: k-kinzal/cdn-integration-sample
 after_deploy:
-  - aws cloudfront create-invalidation --distribution-id E109EQDT2BCAV0 --paths $(git --no-pager diff $TRAVIS_TAG `git describe --abbrev=0 \`git describe --abbrev=0\`^` --name-only | sed -e 's/^/\//' | tr '\n' ' ')
+- aws cloudfront create-invalidation --distribution-id E109EQDT2BCAV0 --paths $(git
+  --no-pager diff $TRAVIS_TAG `git describe --abbrev=0 \`git describe --abbrev=0\`^`
+  --name-only | sed -e 's/^/\//' | tr '\n' ' ')
+env:
+  global:
+  - secure: glbO6MGH/PLHMLlIVzd4fuXKQ0DVpxnpte+7Y6vQqnZeAhTdoa2hOiCM8ObIGR8hxzLiIZGx4ElXX+K0K7DGlnkXDy3krNBgZi9gvdqoudYCpz3pR/KttctZl7ZDTQjqhpQmauq25omytGsU+7eXLkHugVhwpapnhIhWAnJVYBcDRVtwsp9K2A9yE8lp+7cV065YFYaiih2GFbGnqDWA4ViUQ1kgQx39C0ju0Wdu2g5d8elpS+oJ6Z/gEqJAU9/IGdhdcs1ZRKOC1CmP+tbSVGn/kqRFuv4qe+0V7015RDbkNYovnTrKwqXtvhKzN7U/8wDUAlkejT3L7eXcypiZiPeL50hryu5STk24BE2SO5nId4JEek5QNF15fSsol6772fGv/4ej88M0TsNitLX8yvyEbQRxnM4Gg6q2TMPQ4o8OGfPu4Q47zlzgGyH2vfzF1UL3MR+W3zxG6qFDvUATv5wrh2uvn9MKYXMxkWX3atzyQlfBVjzrS5lZxr7jAW9O6TmxbiGwmeXF5TzxG+eSitr5J/+2P8ZyPDHCf7khI/YDcu40ARG9sZfpLFXhjVWvjARqXk4i3k0aE1o7aPi5GK0Kn/nb8yWMO2VWNhm/jcRN/c8/BebZhqL2EnFh1q08v8WRqpmmS+ZA2mEcjkZBDGq792eEP7VdWvII4CywhkE=
+  - secure: M1QWMSndZwCocU6ow7irMEu5HYNz98Z9Z5gRzsww7Ygv+zrGqOVdAhLdjuiS3Tco21RRDF1FpKz5IR7vYQgbPSvqsu7BNHVlFcLHHVliEM/ExN1IkVKOjTAe2yUFGIkgh+I5Md5MRFuD3aD/nx36SCpHgQD4a7BvONMY7+n1hO14qkwcVkol7f74carZh1S72af51RA9A8G9ItCkm8K4bXJW6+NJFSuHWFwCF0rkUIaBi7ILNt0zxEaZQYSf/KMmwKKuaeGKjQiRvjGQ/o0gLhrJgKXe6gZlMp/IfGeXs9HsaQ9LpmM4fW7tkqzn4byfmbPov8+P/5ep+8S84AoB783pg24c8XY9gLNqoFbaVnHaI9Q7lPmlB2sXxaLfNiNmCahndbZXJrAQmxxV6jPEtotuyIFW0GDVDqofflP6wQRzpDwnD1Vp3Xa5UMpgJykdlZnvlrEiQMwjx4csi+l6YH+wuKGoWz9eqXn1kUeG8lWpsK7KWg48S8LZMi1p3Mv3ww+4AFe3QsRtJ9gyqawpgyH6MXkVAJdCgIpwfSkeFrhRkV3jFsRfwymqxiNzO7fyjDxWGNxiF9Fx4Ot21mThDJVZB81BL1HLYMzmAcxG5Gp2rEdIe3Epot8gcH/m8P0JZ011dGCGnnXY5lWC3rV/5dwPIraOlna4/U6/SIwrbjk=
