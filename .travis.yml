@@ -4,6 +4,7 @@ before_install:
 - pip install awscli --ignore-installed six
 - aws configure set preview.cloudfront true
 script:
+- env
 - echo 'no scripts'
 deploy:
   provider: s3
